@@ -1,5 +1,5 @@
 task.spawn(function()
-    repeat task.wait() until game:IsLoaded()
+    repeat task.wait(10) until game:IsLoaded()
     local Socket = syn and syn.websocket.connect or (Krnl and (function() repeat task.wait() until Krnl.WebSocket and Krnl.WebSocket.connect return Krnl.WebSocket.connect end)()) or  WebSocket and WebSocket.connect
     local globalEnv = (function() 
         if typeof(getgenv) == "function" and typeof(getgenv()) == "table" then return getgenv() end 
