@@ -19,7 +19,7 @@ task.spawn(function()
     local config = globalEnv["__Nop__Socket__Config"]
     local err, Socket = pcall(Socket, string.format("ws://%s:%d%s", config["host"], config["port"], config["path"]))
 
-    if not err then task.wait(15) end 
+    if not err then task.wait(5) end 
 
     globalEnv["__NopNopSocket__"] = Socket
     Socket.OnMessage:Connect(function()
@@ -37,6 +37,6 @@ task.spawn(function()
         local data_send = username .. ",🟢 Online"
         Socket:Send(HttpService:JSONEncode(data_send))
         game.StarterGui:SetCore("SendNotification",{Title = 'NopNop Notification',Text='Update Status Success',Duration=5})
-        task.wait(8)
+        task.wait(5)
     end    
 end)
