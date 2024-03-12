@@ -36,6 +36,6 @@ task.spawn(function()
         local username = game.Players.LocalPlayer.Name
         local data_send = username .. ",🟢 Online"
         Socket:Send(HttpService:JSONEncode(data_send))
-        task.wait(2.5)
+        task.wait(10)
     end    
 end)
