@@ -36,7 +36,7 @@ task.spawn(function()
         local username = game.Players.LocalPlayer.Name
         local data_send = username .. ",🟢 Online"
         Socket:Send(HttpService:JSONEncode(data_send))
-        game.StarterGui:SetCore("SendNotification",{Title = 'NopNop Notification',Text='Update Status Success',Duration=5})
+        game.StarterGui:SetCore("SendNotification",{Title = 'NopNop Notification',Text='Update Status Success',Duration=2})
         task.wait(5)
     end    
 end)
