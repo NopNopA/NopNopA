@@ -2,7 +2,7 @@ repeat task.wait() until game:IsLoaded()
 
 local Realname = game.Players.LocalPlayer.Name
 local http = game:GetService("HttpService")
-game.StarterGui:SetCore("SendNotification",{Title = 'Noading',Text='Noading Starting',Duration=20})
+game.StarterGui:SetCore("SendNotification",{Title = 'Noading',Text='Noading Starting',Duration=60})
 while true do
     local Json = {
         ['name'] = Realname,
@@ -20,5 +20,5 @@ while true do
     })
 
     print(server.StatusCode)
-    wait(5)  
+    wait(4)  
 end
