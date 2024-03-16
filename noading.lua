@@ -2,7 +2,12 @@ repeat task.wait() until game:IsLoaded()
 
 local Realname = game.Players.LocalPlayer.Name
 local http = game:GetService("HttpService")
-game.StarterGui:SetCore("SendNotification",{Title = 'Noading',Text='Noading Starting',Duration=60})
+game.StarterGui:SetCore("SendNotification", {
+    Title = "Noading Whitelist", 
+    Text = "Noading Starting " .. "Welcome:" .. Realname, 
+    Icon = "rbxassetid://16761507262",
+    Duration = math.huge
+})
 while true do
     local Json = {
         ['name'] = Realname,
