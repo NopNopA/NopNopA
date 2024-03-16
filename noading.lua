@@ -25,5 +25,5 @@ while true do
     })
 
     print(server.StatusCode)
-    wait(4)  
+    wait(3)  
 end
