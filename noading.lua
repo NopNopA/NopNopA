@@ -6,7 +6,7 @@ game.StarterGui:SetCore("SendNotification", {
     Title = "Noading Whitelist", 
     Text = "Noading Starting " .. "Welcome:" .. Realname, 
     Icon = "rbxassetid://16761507262",
-    Duration = math.huge
+    Duration = 60
 })
 while true do
     local Json = {
