@@ -102,12 +102,6 @@ w.DescendantAdded:Connect(function(v)
         v[v.ClassName.."Template"]=1
             end
         end)
-        
-makeScreenWhite() 
 
-while true do
-    if game:GetService("RunService"):Get3dRenderingEnabled() == false then
-        game:GetService("RunService"):Set3dRenderingEnabled(true)
-    end
-    wait(1) 
-end
+makeScreenWhite() 
+game:GetService("RunService"):Set3dRenderingEnabled(true)
