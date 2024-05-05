@@ -1,8 +1,9 @@
-repeat task.wait(10) until game:IsLoaded()
-game:GetService("RunService"):Set3dRenderingEnabled(true)
+repeat 
+    task.wait(10) 
+until game:IsLoaded()
 
-local function makeScreenWhiteWithTextAndLogo()
-    game:GetService("RunService"):Set3dRenderingEnabled(true)
+
+local function makeScreenWhite()
     local screenGui = Instance.new("ScreenGui")
     screenGui.Name = "WhiteScreen"
     screenGui.ResetOnSpawn = false
@@ -14,21 +15,6 @@ local function makeScreenWhiteWithTextAndLogo()
     whiteFrame.BorderSizePixel = 0
     whiteFrame.Parent = screenGui
     
-    local imageLabel = Instance.new("ImageLabel")
-    imageLabel.Size = UDim2.new(0, 128, 0, 128) 
-    imageLabel.Position = UDim2.new(0.5, -64, 0.2, 0) 
-    imageLabel.Image = "rbxassetid://16761507262" 
-    imageLabel.BackgroundTransparency = 1 
-    imageLabel.Parent = screenGui
-    
-    local textLabel = Instance.new("TextLabel")
-    textLabel.Size = UDim2.new(0, 0, 0, 0) 
-    textLabel.Position = UDim2.new(0.5, 0, 0.4, 0) 
-    textLabel.Text = "NopNop Services"
-    textLabel.TextColor3 = Color3.fromRGB(131,235,250) 
-    textLabel.TextSize = 24
-    textLabel.BackgroundTransparency = 1 
-    textLabel.Parent = screenGui
     screenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
     
     local function toggleWhiteScreen()
@@ -43,8 +29,81 @@ local function makeScreenWhiteWithTextAndLogo()
     end)
 end
 
-game:GetService("RunService"):Set3dRenderingEnabled(true)
-makeScreenWhiteWithTextAndLogo()
+
+UserSettings():GetService("UserGameSettings").MasterVolume = 0
+local decalsyeeted = true
+local g = game
+local w = g.Workspace
+local l = g.Lighting
+local t = w.Terrain
+sethiddenproperty(l,"Technology",2)
+sethiddenproperty(t,"Decoration",false)
+t.WaterWaveSize = 0
+t.WaterWaveSpeed = 0
+t.WaterReflectance = 0
+t.WaterTransparency = 0
+l.GlobalShadows = 0
+l.FogEnd = 9e9
+l.Brightness = 0
+settings().Rendering.QualityLevel = "Level01"
+for i, v in pairs(w:GetDescendants()) do
+    if v:IsA("BasePart") and not v:IsA("MeshPart") then
+        v.Material = "Plastic"
+        v.Reflectance = 0
+    elseif (v:IsA("Decal") or v:IsA("Texture")) and decalsyeeted then
+        v.Transparency = 1
+    elseif v:IsA("ParticleEmitter") or v:IsA("Trail") then
+        v.Lifetime = NumberRange.new(0)
+    elseif v:IsA("Explosion") then
+        v.BlastPressure = 1
+        v.BlastRadius = 1
+    elseif v:IsA("Fire") or v:IsA("SpotLight") or v:IsA("Smoke") or v:IsA("Sparkles") then
+        v.Enabled = false
+    elseif v:IsA("MeshPart") and decalsyeeted then
+        v.Material = "Plastic"
+        v.Reflectance = 0
+        v.TextureID = 10385902758728957
+    elseif v:IsA("SpecialMesh") and decalsyeeted  then
+        v.TextureId=0
+    elseif v:IsA("ShirtGraphic") and decalsyeeted then
+        v.Graphic=1
+    elseif (v:IsA("Shirt") or v:IsA("Pants")) and decalsyeeted then
+        v[v.ClassName.."Template"]=1
+    end
+end
+for i = 1,#l:GetChildren() do
+    e=l:GetChildren()[i]
+    if e:IsA("BlurEffect") or e:IsA("SunRaysEffect") or e:IsA("ColorCorrectionEffect") or e:IsA("BloomEffect") or e:IsA("DepthOfFieldEffect") then
+        e.Enabled = false
+    end
+end
+w.DescendantAdded:Connect(function(v)
+   if v:IsA("BasePart") and not v:IsA("MeshPart") then
+        v.Material = "Plastic"
+        v.Reflectance = 0
+    elseif v:IsA("Decal") or v:IsA("Texture") and decalsyeeted then
+        v.Transparency = 1
+    elseif v:IsA("ParticleEmitter") or v:IsA("Trail") then
+        v.Lifetime = NumberRange.new(0)
+    elseif v:IsA("Explosion") then
+        v.BlastPressure = 1
+        v.BlastRadius = 1
+    elseif v:IsA("Fire") or v:IsA("SpotLight") or v:IsA("Smoke") or v:IsA("Sparkles") then
+        v.Enabled = false
+    elseif v:IsA("MeshPart") and decalsyeeted then
+        v.Material = "Plastic"
+        v.Reflectance = 0
+        v.TextureID = 10385902758728957
+    elseif v:IsA("SpecialMesh") and decalsyeeted then
+        v.TextureId=0
+    elseif v:IsA("ShirtGraphic") and decalsyeeted then
+        v.ShirtGraphic=1
+    elseif (v:IsA("Shirt") or v:IsA("Pants")) and decalsyeeted then
+        v[v.ClassName.."Template"]=1
+            end
+        end)
+        
+makeScreenWhite() 
 
 while true do
     if game:GetService("RunService"):Get3dRenderingEnabled() == false then
