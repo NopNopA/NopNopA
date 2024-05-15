@@ -191,4 +191,5 @@ while true do
             game.Players.LocalPlayer:Kick('[⛔] Restarting due to low FPS')
         end
     end
+    wait(20)  
 end
