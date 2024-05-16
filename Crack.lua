@@ -169,7 +169,7 @@ test("request", {"http.request", "http_request"}, function()
 end)
 
 local renderStepped = game:GetService("RunService").RenderStepped
-local Fps_low = 3
+local Fps_low = 2
 local function step()
     renderStepped:Wait()
     local sum = 0
