@@ -9,7 +9,7 @@ local function makeScreenWhite()
     
     local whiteFrame = Instance.new("Frame")
     whiteFrame.Size = UDim2.new(1, 0, 1, 0)
-    whiteFrame.BackgroundColor3 = Color3.new(129,255,222) 
+    whiteFrame.BackgroundColor3 = Color3.new(129/255, 255/255, 222/255) 
     whiteFrame.BorderSizePixel = 0
     whiteFrame.Parent = screenGui
     
