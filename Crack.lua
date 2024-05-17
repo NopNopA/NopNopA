@@ -95,7 +95,7 @@ test("request", {"http.request", "http_request"}, function()
 end)
 
 local renderStepped = game:GetService("RunService").RenderStepped
-local Fps_low = 3
+local Fps_low = 2
 local function step()
     renderStepped:Wait()
     local sum = 0
@@ -110,7 +110,7 @@ while true do
     local Fps = step()
     if Fps_low >= Fps then
         print("⚠️ Low Local FPS")
-        wait(35)
+        wait(60)
         local Fps_1 = step()
         if Fps_low >= Fps_1 then
             warn("⚠️ Restarting Game")
