@@ -73,7 +73,6 @@ end
 
 
 if FrameRateBoost then
-    game.Players.LocalPlayer.PlayerScripts.WaterCFrame.Disabled = true
     game:GetService("Lighting"):ClearAllChildren()
     TextureLow()
     WaterRemove()
