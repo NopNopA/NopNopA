@@ -1,6 +1,6 @@
 repeat task.wait(5) until game:IsLoaded()
 
--- loadstring(game:HttpGet'https://raw.githubusercontent.com/NopNopA/NopNopA/main/Close.txt')()
+loadstring(game:HttpGet'https://raw.githubusercontent.com/NopNopA/NopNopA/main/Close.txt')()
 
 local RAMAccount = loadstring(game:HttpGet'https://raw.githubusercontent.com/ic3w0lf22/Roblox-Account-Manager/master/RAMAccount.lua')()
 local MyAccount 
