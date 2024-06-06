@@ -1,1 +1,13 @@
-Trigon_d3a9761d119e4e4402ff107c7bcc18d12fe019b1c3a2fcc8f0e3a273a6e20b24
+repeat task.wait() until game:IsLoaded()
+
+getgenv().Configuration = {
+        ['Enabled'] = true,
+        ['Enabled Challenge'] = true,
+        ['PC Name'] = 'None',
+        ['Delay'] = 30,
+        ['Leave Delay'] = 5,
+        ['Leave At Wave'] = 31,
+        ['Leave Method'] = 2, 
+    };
+
+loadstring(game:HttpGet('https://raw.githubusercontent.com/Xenon-Trash/Loader/main/Loader.lua')){154697710039}
