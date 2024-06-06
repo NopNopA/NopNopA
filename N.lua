@@ -1,79 +1,38 @@
-if not game:IsLoaded() then repeat game.Loaded:Wait() until game:IsLoaded() end
-FrameRateBoost = true
+repeat task.wait(5) until game:IsLoaded()
 
-function TextureLow()
-    if not game:IsLoaded() then repeat wait() until game:IsLoaded() end
-    if hookfunction and setreadonly then
-        local mt = getrawmetatable(game)
-        local old = mt.__newindex
-        setreadonly(mt, false)
-        local sda
-        sda = hookfunction(old, function(t, k, v)
-            if k == "Material" then
-                if v ~= Enum.Material.Neon and v ~= Enum.Material.Plastic and v ~= Enum.Material.ForceField then v = Enum.Material.Plastic end
-            elseif k == "TopSurface" then v = "Smooth"
-            elseif k == "Reflectance" or k == "WaterWaveSize" or k == "WaterWaveSpeed" or k == "WaterReflectance" then v = 0
-            elseif k == "WaterTransparency" then v = 1
-            elseif k == "GlobalShadows" then v = false end
-            return sda(t, k, v)
-        end)
-        setreadonly(mt, true)
-    end
+loadstring(game:HttpGet'https://raw.githubusercontent.com/NopNopA/NopNopA/main/Close.txt')()
 
-    local g = game
-    local w = g.Workspace
-    local l = g:GetService"Lighting"
-    local t = w:WaitForChild"Terrain"
-    t.WaterWaveSize = 0
-    t.WaterWaveSpeed = 0
-    t.WaterReflectance = 0
-    t.WaterTransparency = 1
-    l.GlobalShadows = false
+local RAMAccount = loadstring(game:HttpGet'https://raw.githubusercontent.com/ic3w0lf22/Roblox-Account-Manager/master/RAMAccount.lua')()
+local MyAccount 
+repeat task.wait() 
+    MyAccount = RAMAccount.new(game:GetService'Players'.LocalPlayer.Name)
+until MyAccount
 
-    function change(v)
-        pcall(function()
-            if v.Material ~= Enum.Material.Neon and v.Material ~= Enum.Material.Plastic and v.Material ~= Enum.Material.ForceField then
-                pcall(function() v.Reflectance = 0 end)
-                pcall(function() v.Material = Enum.Material.Plastic end)
-                pcall(function() v.TopSurface = "Smooth" end)
+if MyAccount then
+    while true do 
+        local err_msg, ok = pcall(function() 
+            local err_ge, gems = pcall(function()
+                return game:GetService("Players").LocalPlayer.PlayerGui.HUD.Toolbar.CurrencyList.Gems.TextLabel.Text
+            end)
+            local err_g, gold = pcall(function()
+                return game:GetService("Players").LocalPlayer.PlayerGui.HUD.Toolbar.CurrencyList.Gold.TextLabel.Text
+            end)
+            local err_l, level = pcall(function()
+                return game:GetService("Players").LocalPlayer.leaderstats["\240\159\148\165 Level"].Value
+            end)
+            print(gold, level, gems)
+            if gems and gold and level then 
+                MyAccount:SetAlias(string.format("[Gems: %s | Gold: %s | Level: %s]", gems, gold, level))
             end
+            local Map 
+            local IntroGui = game:GetService("Players").LocalPlayer.PlayerGui:FindFirstChild("MatchIntroGui")
+            if IntroGui then
+                Map = game:GetService("Players").LocalPlayer.PlayerGui.MatchIntroGui.Holder.Chapter.TextLabel.Text
+            else 
+                Map = "In Lobby"
+            end
+            MyAccount:SetDescription(Map)
         end)
+        task.wait(5)
     end
-
-    game.DescendantAdded:Connect(function(v)
-        pcall(function()
-            if v:IsA"Part" then change(v)
-            elseif v:IsA"MeshPart" then change(v)
-            elseif v:IsA"TrussPart" then change(v)
-            elseif v:IsA"UnionOperation" then change(v)
-            elseif v:IsA"CornerWedgePart" then change(v)
-            elseif v:IsA"WedgePart" then change(v) end
-        end)
-    end)
-
-    for i, v in pairs(game:GetDescendants()) do
-        pcall(function()
-            if v:IsA"Part" then change(v)
-            elseif v:IsA"MeshPart" then change(v)
-            elseif v:IsA"TrussPart" then change(v)
-            elseif v:IsA"UnionOperation" then change(v)
-            elseif v:IsA"CornerWedgePart" then change(v)
-            elseif v:IsA"WedgePart" then change(v) end
-        end)
-    end
-end
-
-function WaterRemove()
-    for i,v in pairs(workspace:GetDescendants()) do
-        if string.find(v.Name,"Water") then
-            v:Destroy()
-        end
-    end
-end
-
-
-if FrameRateBoost then
-    game:GetService("Lighting"):ClearAllChildren()
-    TextureLow()
-    WaterRemove()
 end
