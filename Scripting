@@ -1,13 +1,13 @@
 repeat task.wait(5) until game:IsLoaded()
 
 local function executeScript()
-    local url = Config["Url"]
     if url and url ~= "" then
         loadstring(game:HttpGet(url))()
     else
-        print("URL is empty or nil in Config")
+        print("URL is empty or nil in local variable")
     end
 end
+
 
 
 
