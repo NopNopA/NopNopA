@@ -31,6 +31,6 @@ if MyAccount then
             end
             MyAccount:SetDescription(Map)
         end)
-        task.wait(5)
+        task.wait(20)
     end
 end
