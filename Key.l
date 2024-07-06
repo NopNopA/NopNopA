@@ -1,16 +1,1 @@
-Trigon_a8fe806bfaf813fd94199debe68924c0802d105e8c54cc09ab22205a587b2aab
 
-New line added.WWWW
-WWWW
-WWWW
-WWWW
-WWWW
- WWWW
-WWWW
-WWWW
-wrefikdokfv
-wrifjdoki
-wrifjdoki
-wrifjdoki
-wrifjdoki
-eeeeeeeeeee
